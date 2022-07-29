@@ -1,0 +1,35 @@
+/* SELECT TOP 1000 */
+SELECT TOP (1000) [Beverage_category]
+      ,[Beverage]
+      ,[Beverage_prep]
+      ,[Calories]
+      ,[Total_Fat_g]
+      ,[Trans_Fat_g]
+      ,[Saturated_Fat_g]
+      ,[Sodium_mg]
+      ,[Total_Carbohydrates_g]
+      ,[Cholesterol_mg]
+      ,[Dietary_Fibre_g]
+      ,[Sugars_g]
+      ,[Protein_g]
+      ,[Vitamin_A_DV]
+      ,[Vitamin_C_DV]
+      ,[Calcium_DV]
+      ,[Iron_DV]
+      ,[Caffeine_mg]
+  FROM [et3_database_task].[dbo].[drinkMenu]
+ 
+/* It's a select statment using aggergation function to get highest calory */
+SELECT MAX (Calories) AS max_calory, (Beverage) FROM drinkMenu 
+GROUP BY Beverage
+ORDER BY max_calory DESC
+
+/* It's a select statment using aggergation function to get average calory */
+SELECT AVG (Calories) AS avg_calory, (Beverage_category) FROM drinkMenu 
+GROUP BY Beverage_category
+ORDER BY avg_calory DESC
+
+/* It's a select statment using aggergation function to get lowest averages calory */
+SELECT AVG (Calories) AS caleroy_amount, (Beverage_category) FROM drinkMenu 
+GROUP BY Beverage_category
+ORDER BY caleroy_amount ASC
